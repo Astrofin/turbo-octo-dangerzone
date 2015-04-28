@@ -1,29 +1,32 @@
-<p id="notice"><%= notice %></p>
+<% if notice %>
+  <p id="notice"><%= notice %></p>
+<% end %>
+<h1>Details for <%= "#{@contact.first_name.downcase.capitalize} #{@contact.last_name.downcase.capitalize}" %></h1>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone number</th>
+      <th>Address</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
 
-<p>
-  <strong>Email:</strong>
-  <%= @contact.email %>
-</p>
-
-<p>
-  <strong>Phone number:</strong>
-  <%= @contact.phone_number %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @contact.address %>
-</p>
-
-<p>
-  <strong>First name:</strong>
-  <%= @contact.first_name %>
-</p>
-
-<p>
-  <strong>Last name:</strong>
-  <%= @contact.last_name %>
-</p>
-
-<%= link_to 'Edit', edit_contact_path(@contact) %> |
-<%= link_to 'Back', contacts_path %>
+  <tbody>
+    <tr>
+      <td><%= "#{@contact.first_name.downcase.capitalize} #{@contact.last_name.downcase.capitalize}" %></td>
+      <td><%= @contact.email %></td>
+      <td>
+      <% if @contact.phone_number =~ /\d{10}/ %>
+        <%= "(#{@contact.phone_number[0..2]}) #{@contact.phone_number[3..5]}-#{@contact.phone_number[6..9]}" %>
+      <% else %>
+        <%= @contact.phone_number %>
+      <% end %>
+      </td>
+      <td><%= @contact.address %></td>
+      <td><%= link_to 'Edit', edit_contact_path(@contact) %></td>
+      <td><%= link_to 'Back', contacts_path %></td>
+    </tr>
+  </tbody>
+</table>
