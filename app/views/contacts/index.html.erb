@@ -1,5 +1,6 @@
-<h1>Listing contacts</h1>
-
+<h1 style="display:inline-block;">Contact List</h1>
+|
+<%= link_to 'New Contact', new_contact_path %>
 <table>
   <thead>
     <tr>
@@ -26,12 +27,8 @@
         <td><%= contact.address %></td>
         <td><%= link_to 'Show', contact %></td>
         <td><%= link_to 'Edit', edit_contact_path(contact) %></td>
-        <td><%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Contact', new_contact_path %>

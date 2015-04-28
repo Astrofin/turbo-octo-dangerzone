@@ -1,6 +1,6 @@
-<h1>Editing contact</h1>
-
-<%= render 'form' %>
-
+<h1 style="display:inline-block;">Editing Details for <%= "#{@contact.first_name.downcase.capitalize} #{@contact.last_name.downcase.capitalize}" %></h1>
+|
 <%= link_to 'Show', @contact %> |
 <%= link_to 'Back', contacts_path %>
+
+<%= render 'form' %>

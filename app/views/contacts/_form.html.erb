@@ -10,28 +10,27 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :phone_number %><br>
-    <%= f.text_field :phone_number %>
-  </div>
-  <div class="field">
-    <%= f.label :address %><br>
-    <%= f.text_field :address %>
-  </div>
-  <div class="field">
-    <%= f.label :first_name %><br>
-    <%= f.text_field :first_name %>
-  </div>
-  <div class="field">
-    <%= f.label :last_name %><br>
-    <%= f.text_field :last_name %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <table class="bordered">
+    <tr>
+      <th><%= f.label :first_name %></th>
+      <td><%= f.text_field :first_name %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :last_name %></th>
+      <td><%= f.text_field :last_name %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :email %></th>
+      <td><%= f.text_field :email %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :phone_number %></th>
+      <td><%= f.text_field :phone_number %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :address %></th>
+      <td><%= f.text_field :address %></td>
+    </tr>
+  </table>
+  <%= f.submit class: 'button' %>
 <% end %>
