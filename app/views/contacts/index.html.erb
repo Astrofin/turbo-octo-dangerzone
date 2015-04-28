@@ -3,11 +3,10 @@
 <table>
   <thead>
     <tr>
+      <th>Name</th>
       <th>Email</th>
       <th>Phone number</th>
       <th>Address</th>
-      <th>First name</th>
-      <th>Last name</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,11 +14,16 @@
   <tbody>
     <% @contacts.each do |contact| %>
       <tr>
+        <td><%= "#{contact.first_name.downcase.capitalize} #{contact.last_name.downcase.capitalize}" %></td>
         <td><%= contact.email %></td>
-        <td><%= contact.phone_number %></td>
+        <td>
+        <% if contact.phone_number =~ /\d{10}/ %>
+          <%= "(#{contact.phone_number[0..2]}) #{contact.phone_number[3..5]}-#{contact.phone_number[6..9]}" %>
+        <% else %>
+          <%= contact.phone_number %>
+        <% end %>
+        </td>
         <td><%= contact.address %></td>
-        <td><%= contact.first_name %></td>
-        <td><%= contact.last_name %></td>
         <td><%= link_to 'Show', contact %></td>
         <td><%= link_to 'Edit', edit_contact_path(contact) %></td>
         <td><%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
